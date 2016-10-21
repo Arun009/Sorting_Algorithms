@@ -25,19 +25,19 @@ The average, best and worst case order for this algorithm is O(n ^ 2)*/
 int* BubbleSort::sort(int *array, int size)
 {
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < size; i++)			// The array is iterated n times where n is the size of the array
 	{
-		for (int j = 0; j < size-1; j++)
+		for (int j = 0; j < size-1; j++)	// During each pass of i over the array, j is iterated size -1 times, since element at position j will be compared to element at j+1
 		{
-			if (array[j] > array[j+1]) 
-			{
+			if (array[j] > array[j+1])		// Compare if element at position j is greater than element at position j+1 (compares 1st and 2nd, then 2nd and 3rd and so on as j is incremented)
+			{								// If above condition holds true swap the elements
 				int temp = array[j];
 				array[j] = array[j+1];
 				array[j+1] = temp;
 			}
 		}
 	}
-	return array;
+	return array;							// Finally return the array
 }
 
 /* A better version of bubble sort, known as modified bubble sort, includes a flag that is set if an exchange is made after an entire pass over the array. 
@@ -46,21 +46,21 @@ In that case, the sort should end. The new best case order for this algorithm is
 int* BubbleSort::modifiedSort(int *array, int size)
 {
 	int sortFlag;
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < size; i++)			// The array is iterated n times where n is the size of the array
 	{
 		sortFlag = 0;
-		for (int j = 0; j < size - 1; j++)
+		for (int j = 0; j < size - 1; j++)	// During each pass of i over the array, j is iterated size -1 times, since element at position j will be compared to element at j+1
 		{
-			if (array[j] > array[j + 1])
-			{
+			if (array[j] > array[j + 1])	// Compare if element at position j is greater than element at position j+1 (compares 1st and 2nd, then 2nd and 3rd and so on as j is incremented)
+			{								// If above condition holds true swap the elements
 				int temp = array[j];
 				array[j] = array[j + 1];
 				array[j + 1] = temp;
-				sortFlag = 1;
+				sortFlag = 1;				// Set the sortFlag to 1 to indicate that elements where swapped
 			}
 		}
-		if (sortFlag == 0)
-			return array;
+		if (sortFlag == 0)					// If over a pass of the entire array during iteration of j, no elements where swapped, sortFlag will be 0 indication the array is sorted
+			return array;					// Hence, in this case we do not have to iterate over the array again and return the array
 	}
 	return array;
 }
