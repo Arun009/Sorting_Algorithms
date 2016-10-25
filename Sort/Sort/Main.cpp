@@ -5,6 +5,7 @@ using namespace std;
 #include "BubbleSort.h"
 #include "SelectionSort.h"
 #include "InsertionSort.h"
+#include "HeapSort.h"
 
 void display(int *array, int size);
 
@@ -13,11 +14,10 @@ int main()
 	cout << "SORTING ALGORITHMS" << endl;
 	cout << "==================" << endl;
 
-	int size = 5;
-
 	BubbleSort bubbleSort;
 	SelectionSort selectionSort;
 	InsertionSort insertionSort;
+	HeapSort heapSort;
 
 	int choice;
 	do
@@ -27,12 +27,14 @@ int main()
 		cout << "2. Modified Bubble Sort" << endl;
 		cout << "3. Selection Sort" << endl;
 		cout << "4. Insertion Sort" << endl;
+		cout << "5. Heap Sort : Array Implementation" << endl;
 		cout << "7. Exit" << endl;
 		cout << "Enter your choice" << endl;
 		cin >> choice;
 		
-		int a[] = { 2, 3, 1, 5, 4 };
+		int a[] = { 2, 3, 1, 5, 4, 10, 8, 6, 7 };
 		int *b = nullptr;
+		int size = sizeof(a) / sizeof(a[0]);
 
 		switch (choice)
 		{
@@ -72,6 +74,17 @@ int main()
 			display(a, size);
 
 			b = insertionSort.sort(a, size);
+			cout << "Array After Sorting" << endl;
+			display(b, size);
+			break;
+
+		case 5:
+			cout << endl << "Heap Sort: Array Implementation" << endl;
+			cout << "Array Before Sorting" << endl;
+			display(a, size);
+			
+			heapSort.heapSort(a, size);
+			b = heapSort.printArray(a, size);
 			cout << "Array After Sorting" << endl;
 			display(b, size);
 			break;
