@@ -11,7 +11,7 @@ SelectionSort::~SelectionSort()
 {
 }
 
-/* Selection sort is alos a simple algorithm. It works by selecting the smallest element of the array and placing it at the head of the array, 
+/* Selection sort is also a simple algorithm. It works by selecting the smallest element of the array and placing it at the head of the array, 
 then the second smallest is placed below it and so on.
 The first loop goes from 0 to n (n = size), and the second loop goes from i to n, so it goes from 0 to n, then from 1 to n, then from 2 to n and so on.
 The average, best and worst case order for this algorithm is O(n ^ 2)
